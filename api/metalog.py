@@ -7,6 +7,8 @@ app = Flask(__name__, template_folder="Site2")
 
 app.secret_key = "some_secret_key"
 
+port = int(os.environ.get("PORT", 5000))
+
 @app.route('/')
 def home():
     return redirect(url_for('login'))
@@ -39,4 +41,4 @@ def admin():
     return render_template('home.html', text=text)
 
 if __name__ == "__main__":  
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0", port=port)
