@@ -1,4 +1,5 @@
 <html>
+  <title>Admin</title>
 <head>
   <title>Hi Admin!</title>
   
@@ -6,7 +7,32 @@
 <body>
   <h1>Hi Admin!</h1>
   <p>User Data:</p>
-  <pre>{{ text }}</pre>
-  
+  <pre>{{ data }}</pre>
+  <button onclick="resetData()">Reset Data</button>
+  <script>
+    function resetData() {
+      if (confirm("Are you sure you want to reset the data?")) {
+        // Send a POST request to the reset_data route
+        fetch("{{ url_for('reset_data') }}", {
+          method: "POST"
+        })
+        .then(response => {
+          if (response.ok) {
+            // Reload the page to update the data
+            window.location.reload();
+          } else {
+            alert("Failed to reset data.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred while resetting data.");
+        });
+      }
+    }
+  </script>
+  <form action="{{ url_for('logout') }}" method="post">
+    <input type="submit" value="Log Out">
+  </form>
 </body>
 </html>
